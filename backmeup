@@ -1,0 +1,38 @@
+#!/bin/sh
+
+#####################################
+# Create production env setup tar
+# 
+# Modified: Zeyuan Hu 
+#
+# This will create a tar file 'hzy.tar', which
+# contains all my production environment setup.
+# You can copy 'hzy.tar' to your local account
+# and untar it. Then, you can have an environment
+# that is ready for development work.
+#
+# To find details of setup, please reference 
+# "$HOME/bin/README.md"
+#
+# To create your own setup tar, you only
+# need to modify files in 'hzy_backup_list'
+# and then run this script.
+#
+# NO WARRANTY
+#####################################
+
+
+case `uname` in
+AIX)
+    cd ~ && tar -cf hzy.tar -L ~/bin/hzy_backup_list
+    ;;
+Linux)
+    cd ~ && tar -cf hzy.tar -T ~/bin/hzy_backup_list
+    ;;
+SunOS)
+    cd ~ && tar -cf hzy.tar -I ~/bin/hzy_backup_list
+    ;;
+*)
+    ;;
+esac
+
