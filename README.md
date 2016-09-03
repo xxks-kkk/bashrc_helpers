@@ -1,7 +1,6 @@
 # Bin tools
 
-Contains the scripts to be placed under ``$HOME/bin``
-and facilitates my day-to-day development work.
+Contains the utility scripts stored under ``$HOME/bin``
 
 ## Scripts list
 
