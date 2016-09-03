@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+# convert list of decimal numbers into hex
+
+# Sample Usage:
+# > ./d2h 100 500 751
+# 100 = 0x64
+# 500 = 0x1f4
+# 751 = 0x2ef
+
+for ($i = 0; $i < @ARGV; $i++)
+{
+  printf("%d = 0x%x\n", @ARGV[$i], $ARGV[$i]);
+}

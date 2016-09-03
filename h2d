@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+# Convert list of hex numers into decimal
+
+# Sample Usage:
+# unix> ./h2d 0x64
+# 0x64 = 100
+
+for ($i = 0; $i < @ARGV; $i++)
+{
+  $val = hex($ARGV[$i]);
+  printf("0x%x = %d\n", $val, $val);
+}
