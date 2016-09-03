@@ -1,5 +1,6 @@
 bin/backmeup
 bin/hzy_backup_list
-
+bin/h2d
+bin/d2h
 
 
