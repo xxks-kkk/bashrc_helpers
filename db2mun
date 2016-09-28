@@ -97,8 +97,9 @@ statements()
     elif [ "$1" -eq 4 ]; then
         read -p "table name: " tablename
         er "db2 describe table $tablename"
+    elif [ "$1" -eq 5 ]; then
+        er "db2 select char(WRAPNAME, 10) WRAPNAME, char(SERVERNAME, 10) SERVERNAME, char(SERVERTYPE,10) SERVERTYPE, char(SERVERVERSION, 10) SERVERVERSION, char(CREATE_TIME, 10) CREATE_TIME, char(OPTION,10) OPTION, char(SETTING, 10) SETTING from syscat.serveroptions"
     fi
-
 }
 
 #------------------------------------------------------------------
@@ -117,6 +118,7 @@ display()
         printf "%d. %s\n" 2 "Show current available databases"
         printf "%d. %s\n" 3 "Retrieve all table names for a given schema"
         printf "%d. %s\n" 4 "Describe table"
+        printf "%d. %s\n" 5 "Display all server options"
         read ans
         if [ $ans -ge 0 -a $ans -le $maxPrompt  2> /dev/null ]; then
             statements $ans
