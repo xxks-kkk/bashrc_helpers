@@ -1,0 +1,43 @@
+#!/bin/sh
+
+########################
+# Calculate body build 
+# stats
+#
+########################
+
+### Do actual work
+
+echo "Provide body fat as decimal numeral:"
+read bf
+echo "provide your weight as kilogram:"
+read weight
+echo "how many hours you exercise per week:"
+read hrs
+
+if [ "$hrs" -ge 1 -a "$hrs" -le 3 ]; then
+   multiplier=1.2
+elif [ "$hrs" -ge 4 -a "$hrs" -le 6 ]; then
+   multiplier=1.35
+else
+   multiplier=1.5
+fi
+
+# calculate Lean Body Mass (LBM)
+lbm=`echo "(1 - $bf) * $weight" | bc`
+# calculate Basal Metabolic Rate (BMR)
+bmr=`echo "370 + (21.6 * $lbm)" | bc`
+# calculate TDEE
+tdee=`echo "$bmr * $multiplier" | bc`
+
+## Display
+
+echo "-------------------"
+echo "  Term  |  Number"
+echo "-------------------"   
+echo " BF%    |  $bf"
+echo "-------------------"
+echo " Weight | $weight (kg)"
+echo "-------------------"
+echo " TDEE   | $tdee  (calories/day)"
+echo "-------------------"
