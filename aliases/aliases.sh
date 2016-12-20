@@ -25,5 +25,5 @@ alias lsudo='sudo env PATH="$PATH"'                              ## use speciall
 
 # Misc tweaks
 /usr/bin/setxkbmap -option "ctrl:swapcaps"                       ## switch tabs with caps
-
+export LSCOLORS=gxfxcxdxbxegedabagacad
 
