@@ -17,6 +17,7 @@ alias hgrep='history|grep --color'                                              
 
 # git related
 alias quickdel="git ls-files --deleted -z | xargs -0 git rm"                             ## rm the deleted files from git control
+alias gs="git status"
 
 # LaTex related
 alias latexmgrgui='sudo env PATH="$PATH" tlmgr --gui'                                    ## bring up latex manager gui
