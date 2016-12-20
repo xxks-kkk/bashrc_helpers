@@ -9,9 +9,29 @@
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 export HISTSIZE=1000000
 export HISTFILESIZE=1000000
-export HISTTIMEFORMAT='%F %T '
+HISTTIMEFORMAT="%d/%m/%y %T "
 shopt -s histappend                      # when the shell exists, append to history file instead of overwriting it
 
-# Save and reload the history after each command finishes
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+# Steal from http://eli.thegreenplace.net/2013/06/11/keeping-persistent-history-in-bash
 
+log_bash_persistent_history()
+{
+  [[
+    $(history 1) =~ ^\ *[0-9]+\ +([^\ ]+\ [^\ ]+)\ +(.*)$
+  ]]
+  local date_part="${BASH_REMATCH[1]}"
+  local command_part="${BASH_REMATCH[2]}"
+  if [ "$command_part" != "$PERSISTENT_HISTORY_LAST" ]
+  then
+    echo $date_part "|" "$command_part" >> ~/.persistent_history
+    export PERSISTENT_HISTORY_LAST="$command_part"
+  fi
+}
+
+# Stuff to do on PROMPT_COMMAND
+run_on_prompt_command()
+{
+  log_bash_persistent_history
+}
+
+PROMPT_COMMAND="run_on_prompt_command"

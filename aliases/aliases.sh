@@ -12,6 +12,8 @@ alias sshconfig='vi $HOME/.ssh/config'                                          
 alias home="cd $HOME"                                                                    ## cd into home
 alias bashrc="vi /home/zeyuan/.bashrc"                                                   ## quickly edit .bashrc
 alias cleanup="find . -type f -name '#*#' -delete; find . -type f -name '*~' -delete"    ## recursively cleanup for a repo
+alias phgrep='cat ~/.persistent_history|grep --color'                                    ## query .persistent_history file for a command
+alias hgrep='history|grep --color'                                                       ## query history file for a command
 
 # git related
 alias quickdel="git ls-files --deleted -z | xargs -0 git rm"                             ## rm the deleted files from git control
