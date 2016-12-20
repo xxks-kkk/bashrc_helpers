@@ -10,8 +10,6 @@ setup:
 Usage
 -----
 
-- To go completely new setup, run ``setup.sh`` 
-
 - If you want to customize the shell only
 
   Include `helpers.sh` in your `.bashrc`:
