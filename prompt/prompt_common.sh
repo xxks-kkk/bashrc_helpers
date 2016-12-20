@@ -1,5 +1,5 @@
 ############################## User configuration ##############################
-SERVER_NAME="Local_Macbook"
+SERVER_NAME="HotDog"
 
 ######################## Don't touch beyond this point #########################
 ###### Courtesy of https://wiki.archlinux.org/index.php/Color_Bash_Prompt ######
