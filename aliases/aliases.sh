@@ -21,6 +21,7 @@ alias latexmgrgui='sudo env PATH="$PATH" tlmgr --gui'                           
 alias lsudo='sudo env PATH="$PATH"'                                                      ## use speciall sudo to use tlmgr
 
 # emacs related
+set -o emacs                                                                             ## enable emacs operation in command
 export ALTERNATE_EDITOR=""
 export EDITOR=emacsclient
 alias em='emacs -nw'                                                                     ## quickly fire up emacs
