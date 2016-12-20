@@ -1,12 +1,11 @@
 bashrc
 ======
 
-Useful `.bashrc` addons.
+This is the central repo for quickly setup development environment, which contains the following
+setup:
 
-Version
--------
-
-This is a Omega version. That's the vesion that comes *before* Alpha, if Greek alphabet was circular.
+- `.bashrc`
+- `$HOME/bin`
 
 Usage
 -----
