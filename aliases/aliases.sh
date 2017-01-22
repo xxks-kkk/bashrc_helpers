@@ -47,3 +47,6 @@ if [ -x /usr/bin/dircolors ]; then
    alias fgrep='fgrep --color=auto'
    alias egrep='egrep --color=auto'
 fi
+
+# Enable Red Hat Developer Toolset
+source /opt/rh/devtoolset-2/enable
