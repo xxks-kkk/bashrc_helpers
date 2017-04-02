@@ -4,6 +4,12 @@
 # Copyright (c) 2016 Zeyuan Hu <ferrishu3886@gmail.com>
 # See the file license.txt for copying permission.
 
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Darwin' ]]; then
+    platform='mac'
+fi
+
 # Command overrides
 alias tailf='tail -f '		     
 alias pbcopy='xsel --clipboard --input'                                                  ## copy input file to clipboard
@@ -30,7 +36,6 @@ export EDITOR=emacsclient
 alias em='emacs -nw'                                                                     ## quickly fire up emacs
 
 # Misc tweaks
-/usr/bin/setxkbmap -option "ctrl:swapcaps"                                               ## switch tabs with caps
 alias left='xrandr --output VGA-0 --rotate left'                                         ## rotate screen left
 alias normal='xrandr --output VGA-0 --rotate normal'                                     ## rotate screen normal
 
@@ -48,5 +53,12 @@ if [ -x /usr/bin/dircolors ]; then
    alias egrep='egrep --color=auto'
 fi
 
-# Enable Red Hat Developer Toolset
-source /opt/rh/devtoolset-2/enable
+if [[ $platform != 'mac' ]]; then
+    # Enable Red Hat Developer Toolset
+    source /opt/rh/devtoolset-2/enable
+    /usr/bin/setxkbmap -option "ctrl:swapcaps"                                               ## switch tabs with caps
+fi
+
+if [[ $platform == 'mac' ]]; then
+    alias gdb='ggdb'                                                                         ## I install gdb through macports, and they name it as "ggdb" not "gdb"
+fi
