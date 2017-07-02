@@ -16,4 +16,6 @@ source $DIR/prompt/prompt_two_lines_blue.sh
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/history/history_settings.sh
 
-cp .gdbinit $HOME
+cp $DIR/.gdbinit $HOME
+
+clear
