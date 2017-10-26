@@ -8,6 +8,8 @@ platform='unknown'
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
     platform='mac'
+elif [ -f /etc/redhat-release ]; then
+    platform='rhel'
 fi
 
 # Command overrides
@@ -53,13 +55,11 @@ if [ -x /usr/bin/dircolors ]; then
    alias egrep='egrep --color=auto'
 fi
 
-if [[ $platform != 'mac' ]]; then
+if [[ $platform == 'rhel' ]]; then
     # Enable Red Hat Developer Toolset
     source /opt/rh/devtoolset-2/enable
     /usr/bin/setxkbmap -option "ctrl:swapcaps"                                               ## switch tabs with caps
-fi
-
-if [[ $platform == 'mac' ]]; then
+elif [[ $platform == 'mac' ]]; then
     alias gdb='ggdb'                                                                         ## I install gdb through macports, and they name it as "ggdb" not "gdb"
     #unset PYTHONPATH;                                                                       ## This is for python3
     export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages                     ## Do this "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages" before using python2. Now the system by default will use python2
