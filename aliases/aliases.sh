@@ -10,6 +10,8 @@ if [[ "$unamestr" == 'Darwin' ]]; then
     platform='mac'
 elif [ -f /etc/redhat-release ]; then
     platform='rhel'
+elif [[ "$unamestr" == "Linux" ]]; then
+    platform='utcs'
 fi
 
 # Command overrides
@@ -65,4 +67,7 @@ elif [[ $platform == 'mac' ]]; then
     export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages                     ## Do this "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages" before using python2. Now the system by default will use python2
     alias tensorboard2="python2 /usr/local/lib/python2.7/site-packages/tensorboard/main.py"  ## tensorboard is linked with my Python3. This alias is a shorthand to run python2 tensorboard on my system
     export PATH=$PATH:$HOME/bin
+elif [[ $platform == 'utcs' ]]; then
+    # Add CS439 Pintos working environment
+    export PATH=/lusr/opt/pintos/:/lusr/opt/bochs-2.2.6-pintos/bin/:$PATH
 fi
