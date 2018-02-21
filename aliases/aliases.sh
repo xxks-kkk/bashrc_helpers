@@ -10,6 +10,8 @@ if [[ "$unamestr" == 'Darwin' ]]; then
     platform='mac'
 elif [ -f /etc/redhat-release ]; then
     platform='rhel'
+elif [[ "$unamestr" == "Linux" ]]; then
+    platform='utcs'
 fi
 
 # Command overrides
@@ -69,4 +71,9 @@ elif [[ $platform == 'mac' ]]; then
     export PATH=$PATH:$HOME/bin:/opt/apache-maven-3.5.2/bin
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home
     alias conda="/Users/zeyuan/anaconda2/bin/conda"
+    export PATH=$PATH:$HOME/bin
+elif [[ $platform == 'utcs' ]]; then
+    # Add CS439 Pintos working environment
+    export PATH=/lusr/opt/pintos/:/lusr/opt/bochs-2.2.6-pintos/bin/:$PATH
+    alias bld="cd /u/zeyuanhu/Documents/norman-439/src/threads/build"
 fi
