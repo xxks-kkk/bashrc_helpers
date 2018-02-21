@@ -70,4 +70,5 @@ elif [[ $platform == 'mac' ]]; then
 elif [[ $platform == 'utcs' ]]; then
     # Add CS439 Pintos working environment
     export PATH=/lusr/opt/pintos/:/lusr/opt/bochs-2.2.6-pintos/bin/:$PATH
+    alias bld="cd /u/zeyuanhu/Documents/norman-439/src/threads/build"
 fi
