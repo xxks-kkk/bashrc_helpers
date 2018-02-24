@@ -17,5 +17,6 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/history/history_settings.sh
 
 cp $DIR/.gdbinit $HOME
+cp $DIR/.tmux.conf $HOME
 
 clear
