@@ -28,6 +28,8 @@ alias hgrep='history|grep --color'                                              
 # git related
 alias quickdel="git ls-files --deleted -z | xargs -0 git rm"                             ## rm the deleted files from git control
 alias gs="git status"
+alias gh="git push"
+alias gl="git pull"
 
 # LaTex related
 alias latexmgrgui='sudo env PATH="$PATH" tlmgr --gui'                                    ## bring up latex manager gui
@@ -66,6 +68,9 @@ elif [[ $platform == 'mac' ]]; then
     #unset PYTHONPATH;                                                                       ## This is for python3
     export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages                     ## Do this "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages" before using python2. Now the system by default will use python2
     alias tensorboard2="python2 /usr/local/lib/python2.7/site-packages/tensorboard/main.py"  ## tensorboard is linked with my Python3. This alias is a shorthand to run python2 tensorboard on my system
+    export PATH=$PATH:$HOME/bin:/opt/apache-maven-3.5.2/bin
+    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home
+    alias conda="/Users/zeyuan/anaconda2/bin/conda"
     export PATH=$PATH:$HOME/bin
 elif [[ $platform == 'utcs' ]]; then
     # Add CS439 Pintos working environment
