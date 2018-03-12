@@ -3,8 +3,8 @@
 # Find out th CPU processor name
 cat /proc/cpuinfo | grep 'model name' | uniq
 
-# Find the number of CPUs
-lscpu | grep '^CPU(s):'
+# Find the number of processors
+printf 'num of processors: %s\n' $(grep -c ^processor /proc/cpuinfo)
 
 # Find out th kernel version
 printf "Kernel version: %s\n" $(uname -r)
