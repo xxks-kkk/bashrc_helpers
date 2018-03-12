@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Find out th CPU processor name
+cat /proc/cpuinfo | grep 'model name' | uniq
+
+# Find the number of CPUs
+lscpu | grep '^CPU(s):'
+
+# Find out th kernel version
+printf "Kernel version: %s\n" $(uname -r)
+
+# Find out the OS information
+# Support platform: Ubuntu platform
+(lsb_release -a 2>/dev/null | grep "Description") || echo "Unsupported platform" 
+
+# Find out the memory size
+z=$(awk '/MemTotal/ {print $2}' /proc/meminfo)
+printf "Memory size: %s GB\n" $(awk -v z=$z 'BEGIN{ print z / 1000000}')
