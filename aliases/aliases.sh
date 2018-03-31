@@ -30,6 +30,7 @@ alias quickdel="git ls-files --deleted -z | xargs -0 git rm"                    
 alias gs="git status"
 alias gh="git push"
 alias gl="git pull"
+alias ga="git add"
 
 # LaTex related
 alias latexmgrgui='sudo env PATH="$PATH" tlmgr --gui'                                    ## bring up latex manager gui
