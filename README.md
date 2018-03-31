@@ -27,3 +27,11 @@ Usage
   OSX:
 
         export PATH=$PATH:/Users/your_user_name/bin
+        
+Get bin scripts
+----------------
+
+Inside "bashrc_helpers" directory, do (delete the empty "bin" folder):
+ 
+- `git submodule update --init --recursive`
+- `git checkout master //fix the deattached head`
