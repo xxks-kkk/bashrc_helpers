@@ -1,4 +1,4 @@
-OB#!/bin/sh
+#!/bin/sh
 
 # Copyright (c) 2012 Adam Matan <adam@matan.name>
 # Copyright (c) 2018 Zeyuan Hu <ferrishu3886@gmail.com>
@@ -21,9 +21,9 @@ cp $DIR/.gdbinit $HOME
 cp $DIR/.tmux.conf $HOME
 
 # Get all the bin scripts
-cd $DIR/bin
-git submodule update --init --recursive
-git checkout master
+# cd $DIR/bin
+# git submodule update --init --recursive
+# git checkout master
 
 # Merge the bin scripts to the local
 mkdir -p $HOME/bin
