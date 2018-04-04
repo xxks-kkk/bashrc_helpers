@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -vx
 
 # Copyright (c) 2012 Adam Matan <adam@matan.name>
 # Copyright (c) 2018 Zeyuan Hu <ferrishu3886@gmail.com>
@@ -8,7 +8,7 @@
 
 if [ `which $SHELL` = "/bin/ksh" ]; then
     DIR="$( cd "$( dirname "_[2]" )" && pwd )"
-elif [ `which $SHELL` = "/bin/bash" ]; then
+elif [ `which $SHELL` = "/bin/bash" ] || [ `which $SHELL` = "/lusr/bin/bash" ]; then
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 fi
 
@@ -28,6 +28,7 @@ cp $DIR/.tmux.conf $HOME
 # Merge the bin scripts to the local
 mkdir -p $HOME/bin
 cp $DIR/bin/* $HOME/bin
+
 
 cd
 clear
