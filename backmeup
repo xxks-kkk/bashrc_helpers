@@ -18,6 +18,8 @@
 # need to modify files in 'hzy_backup_list'
 # and then run this script.
 #
+# Usage: backmeup [list name (default val:'hzy_backup_list')]
+#
 # NO WARRANTY
 #####################################
 
