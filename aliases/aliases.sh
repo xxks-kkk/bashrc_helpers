@@ -77,4 +77,6 @@ elif [[ $platform == 'utcs' ]]; then
     # Add CS439 Pintos working environment
     export PATH=/lusr/opt/pintos/:/lusr/opt/bochs-2.2.6-pintos/bin/:/usr/lib/go-1.10/bin:/home/zeyuanhu/cockroach-v1.1.7/src/github.com/cockroachdb/cockroach:$HOME/bin:$PATH
     alias bld="cd /u/zeyuanhu/Documents/norman-439/src/threads/build"
+    export GOPATH=$HOME/go
+    alias go2="/lusr/opt/go-go1.10.1/bin/go"
 fi
