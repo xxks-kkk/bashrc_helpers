@@ -18,19 +18,23 @@
 # need to modify files in 'hzy_backup_list'
 # and then run this script.
 #
+# Usage: backmeup [list name (default val:'hzy_backup_list')]
+#
 # NO WARRANTY
 #####################################
 
+# Parameter Expansion (https://stackoverflow.com/questions/27445455/what-does-the-colon-dash-mean-in-bash)
+LIST=${1:-~/bin/hzy_backup_list}
 
 case `uname` in
 AIX)
-    cd ~ && tar -cf hzy.tar -L ~/bin/hzy_backup_list
+    cd ~ && tar -cf hzy.tar -L $LIST
     ;;
 Linux)
-    cd ~ && tar -cf hzy.tar -T ~/bin/hzy_backup_list
+    cd ~ && tar -cf hzy.tar -T $LIST
     ;;
 SunOS)
-    cd ~ && tar -cf hzy.tar -I ~/bin/hzy_backup_list
+    cd ~ && tar -cf hzy.tar -I $LIST
     ;;
 *)
     ;;
