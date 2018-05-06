@@ -8,3 +8,13 @@ set logging on
 
 # we want to see the full stack frame
 set pagination off
+
+# Debug HyperPebblesDB code on UTCS Machine
+set environment LD_LIBRARY_PATH /u/zeyuanhu/bin/lib
+
+# Command History related
+# https://sourceware.org/gdb/onlinedocs/gdb/Command-History.html
+set history filename ~/.gdb_history.txt
+set history save on
+set history size unlimited
+set history expansion on
