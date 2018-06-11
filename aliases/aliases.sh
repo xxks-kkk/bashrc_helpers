@@ -12,6 +12,8 @@ elif [ -f /etc/redhat-release ]; then
     platform='rhel'
 elif [[ "$unamestr" == "Linux" ]]; then
     platform='utcs'
+elif [[ "$unamestr" = *"MINGW64_NT"* ]]; then
+    platform='windows'
 fi
 
 # Command overrides
@@ -20,7 +22,7 @@ alias pbcopy='xsel --clipboard --input'                                         
 alias pbpaste='xsel --clipboard --input'                                                 ## paste clipboard to input file
 alias sshconfig='vi $HOME/.ssh/config'                                                   ## see current ssh config
 alias home="cd $HOME"                                                                    ## cd into home
-alias bashrc="vi /home/zeyuan/.bashrc"                                                   ## quickly edit .bashrc
+alias bashrc="vi $HOME/.bashrc"                                                          ## quickly edit .bashrc
 alias cleanup="find . -type f -name '#*#' -delete; find . -type f -name '*~' -delete"    ## recursively cleanup for a repo
 alias phgrep='cat ~/.persistent_history|grep --color'                                    ## query .persistent_history file for a command
 alias hgrep='history|grep --color'                                                       ## query history file for a command
@@ -79,4 +81,9 @@ elif [[ $platform == 'utcs' ]]; then
     alias bld="cd /u/zeyuanhu/Documents/norman-439/src/threads/build"
     export GOPATH=$HOME/go
     alias go2="/lusr/opt/go-go1.10.1/bin/go"
+elif [[ $platform == 'windows' ]]; then
+    # This part assumes to work with git bash
+    alias python='winpty python.exe'
 fi
+
+clear
