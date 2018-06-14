@@ -23,7 +23,7 @@ __add_path_head "/opt/apache-maven-3.5.2/bin"
 __add_path_head "/lusr/opt/pintos/"
 __add_path_head "/lusr/opt/bochs-2.2.6-pintos/bin/"
 __add_path_head "/usr/lib/go-1.10/bin"
-__add_path_head "/home/zeyuanhu/cockroach-v1.1.7/src/github.com/cockroachdb/cockroach"
+__add_path_head "${HOME}/cockroach-v1.1.7/src/github.com/cockroachdb/cockroach"
 
 
 if [ `which $SHELL` = "/bin/ksh" ]; then
