@@ -8,10 +8,12 @@ platform='unknown'
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
     platform='mac'
-elif [ -f /etc/redhat-release ]; then
-    platform='rhel'
+#elif [ -f /etc/redhat-release ]; then
+#    platform='rhel'
 elif [[ "$unamestr" == "Linux" ]]; then
     platform='utcs'
+elif [[ "$unamestr" = *"MINGW64_NT"* ]]; then
+    platform='windows'
 fi
 
 # Command overrides
@@ -20,7 +22,7 @@ alias pbcopy='xsel --clipboard --input'                                         
 alias pbpaste='xsel --clipboard --input'                                                 ## paste clipboard to input file
 alias sshconfig='vi $HOME/.ssh/config'                                                   ## see current ssh config
 alias home="cd $HOME"                                                                    ## cd into home
-alias bashrc="vi /home/zeyuan/.bashrc"                                                   ## quickly edit .bashrc
+alias bashrc="vi $HOME/.bashrc"                                                          ## quickly edit .bashrc
 alias cleanup="find . -type f -name '#*#' -delete; find . -type f -name '*~' -delete"    ## recursively cleanup for a repo
 alias phgrep='cat ~/.persistent_history|grep --color'                                    ## query .persistent_history file for a command
 alias hgrep='history|grep --color'                                                       ## query history file for a command
@@ -63,21 +65,22 @@ fi
 if [[ $platform == 'rhel' ]]; then
     # Enable Red Hat Developer Toolset
     source /opt/rh/devtoolset-2/enable
-    /usr/bin/setxkbmap -option "ctrl:swapcaps"                                               ## switch tabs with caps
+    /usr/bin/setxkbmap -option "ctrl:swapcaps"                                               ## switch ctrl with caps
 elif [[ $platform == 'mac' ]]; then
     alias gdb='ggdb'                                                                         ## I install gdb through macports, and they name it as "ggdb" not "gdb"
     #unset PYTHONPATH;                                                                       ## This is for python3
     export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages                     ## Do this "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages" before using python2. Now the system by default will use python2
     alias tensorboard2="python2 /usr/local/lib/python2.7/site-packages/tensorboard/main.py"  ## tensorboard is linked with my Python3. This alias is a shorthand to run python2 tensorboard on my system
-    export PATH=$PATH:$HOME/bin:/opt/apache-maven-3.5.2/bin
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home
     alias conda="/Users/zeyuan/anaconda2/bin/conda"
-    export PATH=$PATH:$HOME/bin
     alias zyh="cd /Volumes/MacSSD/Users/zyh"                                                ## The home directory for my mac ssd disk
 elif [[ $platform == 'utcs' ]]; then
-    # Add CS439 Pintos working environment
-    export PATH=/lusr/opt/pintos/:/lusr/opt/bochs-2.2.6-pintos/bin/:/usr/lib/go-1.10/bin:/home/zeyuanhu/cockroach-v1.1.7/src/github.com/cockroachdb/cockroach:$HOME/bin:$PATH
     alias bld="cd /u/zeyuanhu/Documents/norman-439/src/threads/build"
     export GOPATH=$HOME/go
     alias go2="/lusr/opt/go-go1.10.1/bin/go"
+elif [[ $platform == 'windows' ]]; then
+    # This part assumes to work with git bash
+    alias python='winpty python.exe'
 fi
+
+clear
