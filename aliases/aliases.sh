@@ -26,6 +26,7 @@ alias bashrc="vi $HOME/.bashrc"                                                 
 alias cleanup="find . -type f -name '#*#' -delete; find . -type f -name '*~' -delete"    ## recursively cleanup for a repo
 alias phgrep='cat ~/.persistent_history|grep --color'                                    ## query .persistent_history file for a command
 alias hgrep='history|grep --color'                                                       ## query history file for a command
+alias ls='ls -G'                                                                         ## colorize ls output
 
 # git related
 alias quickdel="git ls-files --deleted -z | xargs -0 git rm"                             ## rm the deleted files from git control
