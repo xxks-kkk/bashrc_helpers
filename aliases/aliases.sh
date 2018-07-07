@@ -73,6 +73,7 @@ elif [[ $platform == 'mac' ]]; then
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home
     alias conda="/Users/zeyuan/anaconda2/bin/conda"
     export PATH=$PATH:$HOME/bin
+    alias zyh="cd /Volumes/MacSSD/Users/zyh"                                                ## The home directory for my mac ssd disk
 elif [[ $platform == 'utcs' ]]; then
     # Add CS439 Pintos working environment
     export PATH=/lusr/opt/pintos/:/lusr/opt/bochs-2.2.6-pintos/bin/:/usr/lib/go-1.10/bin:/home/zeyuanhu/cockroach-v1.1.7/src/github.com/cockroachdb/cockroach:$HOME/bin:$PATH
