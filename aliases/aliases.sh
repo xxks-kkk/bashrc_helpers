@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Copyright (c) 2012 Adam Matan <adam@matan.name>
-# Copyright (c) 2016 Zeyuan Hu <ferrishu3886@gmail.com>
+# Copyright (c) 2018 Zeyuan Hu <ferrishu3886@gmail.com>
 # See the file license.txt for copying permission.
 
 platform='unknown'
@@ -34,6 +34,7 @@ alias gs="git status"
 alias gh="git push"
 alias gl="git pull"
 alias ga="git add"
+alias gsync="git fetch upstream; git pull upstream master"                               ## sync the fork with the upstream (prereq: `git remote add upstream <url>`)
 
 # LaTex related
 alias latexmgrgui='sudo env PATH="$PATH" tlmgr --gui'                                    ## bring up latex manager gui
