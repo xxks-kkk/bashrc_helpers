@@ -36,6 +36,9 @@ Linux)
 SunOS)
     cd ~ && tar -cf hzy.tar -I $LIST
     ;;
+Darwin)
+    cd ~ && tar -cf hzy.tar -I $LIST
+    ;;
 *)
     ;;
 esac
