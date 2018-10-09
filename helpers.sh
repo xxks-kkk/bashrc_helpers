@@ -24,6 +24,7 @@ __add_path_head "/lusr/opt/pintos/"
 __add_path_head "/lusr/opt/bochs-2.2.6-pintos/bin/"
 __add_path_head "/usr/lib/go-1.10/bin"
 __add_path_head "${HOME}/cockroach-v1.1.7/src/github.com/cockroachdb/cockroach"
+__add_path_head "$HOME/.cargo/bin"
 
 
 if [ `which $SHELL` = "/bin/ksh" ]; then
@@ -32,6 +33,33 @@ elif [ `which $SHELL` = "/bin/bash" ] || [ `which $SHELL` = "/lusr/bin/bash" ]; 
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 fi
 
+################################################################################
+# mark/jump support + completion
+# un/mark name : bookmark a directory or remove one (unmark)
+# jump name : jump to directory
+# marks : show all bookmarks
+export MARKPATH=$HOME/.marks
+function jump {
+    cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
+}
+function mark {
+    mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
+}
+function unmark {
+    rm -i $MARKPATH/$1
+}
+function marks {
+    ls -l $MARKPATH | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
+}
+_completemarks() {
+    local curw=${COMP_WORDS[COMP_CWORD]}
+    local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+    COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+    return 0
+}
+
+complete -F _completemarks jump unmark
+################################################################################
 
 source $DIR/aliases/aliases.sh
 source $DIR/prompt/prompt_two_lines_blue.sh
