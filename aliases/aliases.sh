@@ -11,7 +11,7 @@ if [[ "$unamestr" == 'Darwin' ]]; then
 #elif [ -f /etc/redhat-release ]; then
 #    platform='rhel'
 elif [[ "$unamestr" == "Linux" ]]; then
-    platform='utcs'
+    platform='linux'
 elif [[ "$unamestr" = *"MINGW64_NT"* ]]; then
     platform='windows'
 fi
@@ -75,8 +75,8 @@ elif [[ $platform == 'mac' ]]; then
     alias tensorboard2="python2 /usr/local/lib/python2.7/site-packages/tensorboard/main.py"  ## tensorboard is linked with my Python3. This alias is a shorthand to run python2 tensorboard on my system
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home
     alias conda="/Users/zeyuan/anaconda2/bin/conda"
-    alias zyh="cd /Volumes/MacSSD/Users/zyh"                                                ## The home directory for my mac ssd disk
-elif [[ $platform == 'utcs' ]]; then
+    alias zyh="cd /Volumes/MacSSD/Users/zyh"                                                 ## The home directory for my mac ssd disk
+elif [[ $platform == 'linux' ]]; then
     alias bld="cd /u/zeyuanhu/Documents/norman-439/src/threads/build"
     export GOPATH=$HOME/go
     alias go2="/lusr/opt/go-go1.10.1/bin/go"
