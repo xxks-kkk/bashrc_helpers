@@ -67,6 +67,7 @@ alias gh="git push"
 alias gl="git pull"
 alias ga="git add"
 alias gsync="git fetch upstream; git pull upstream master"                               ## sync the fork with the upstream (prereq: `git remote add upstream <url>`)
+alias gc="git config --global user.name \"xxks-kkk\"; git config --global user.email \"ferrishu3886@gmail.com\"; git commit"
 
 # LaTex related
 alias latexmgrgui='sudo env PATH="$PATH" tlmgr --gui'                                    ## bring up latex manager gui
@@ -76,7 +77,7 @@ alias lsudo='sudo env PATH="$PATH"'                                             
 set -o emacs                                                                             ## enable emacs operation in command
 export ALTERNATE_EDITOR=""
 export EDITOR=emacsclient
-alias em='emacs -nw'                                                                     ## quickly fire up emacs
+alias em='/opt/local/bin/emacs -nw'                                                                     ## quickly fire up emacs
 
 # Misc tweaks
 alias left='xrandr --output VGA-0 --rotate left'                                         ## rotate screen left
