@@ -23,7 +23,9 @@ alias pbpaste='xsel --clipboard --input'                                        
 alias sshconfig='vi $HOME/.ssh/config'                                                   ## see current ssh config
 alias home="cd $HOME"                                                                    ## cd into home
 alias bashrc="vi $HOME/.bashrc"                                                          ## quickly edit .bashrc
-alias cleanup="find . -type f -name '#*#' -delete; find . -type f -name '*~' -delete"    ## recursively cleanup for a repo
+alias cleanup="find . -type f -name '#*#' -delete; \
+               find . -type f -name '*~' -delete;  \
+               find . -type f -name 'core' -delete"                                      ## recursively cleanup for a repo
 alias phgrep='cat ~/.persistent_history|grep --color'                                    ## query .persistent_history file for a command
 alias hgrep='history|grep --color'                                                       ## query history file for a command
 alias ls='ls -G'                                                                         ## colorize ls output
