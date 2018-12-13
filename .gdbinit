@@ -18,3 +18,7 @@ set history filename ~/.gdb_history.txt
 set history save on
 set history size unlimited
 set history expansion on
+
+# Load all project-specific .gdbinit
+# Ref: https://stackoverflow.com/questions/2045509/how-to-save-settings-in-gdb
+add-auto-load-safe-path /
