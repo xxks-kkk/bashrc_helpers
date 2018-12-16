@@ -23,7 +23,9 @@ alias pbpaste='xsel --clipboard --input'                                        
 alias sshconfig='vi $HOME/.ssh/config'                                                   ## see current ssh config
 alias home="cd $HOME"                                                                    ## cd into home
 alias bashrc="vi $HOME/.bashrc"                                                          ## quickly edit .bashrc
-alias cleanup="find . -type f -name '#*#' -delete; find . -type f -name '*~' -delete"    ## recursively cleanup for a repo
+alias cleanup="find . -type f -name '#*#' -delete; \
+               find . -type f -name '*~' -delete;  \
+               find . -type f -name 'core' -delete"                                      ## recursively cleanup for a repo
 alias phgrep='cat ~/.persistent_history|grep --color'                                    ## query .persistent_history file for a command
 alias hgrep='history|grep --color'                                                       ## query history file for a command
 alias ls='ls -G'                                                                         ## colorize ls output
@@ -41,6 +43,7 @@ extract () {                                                                    
         case $1 in
             *.tar.bz2)   tar xvjf $1    ;;
             *.tar.gz)    tar xvzf $1    ;;
+            *.tar.xz)    tar xvf $1     ;;
             *.bz2)       bunzip2 $1     ;;
             *.rar)       unrar x $1     ;;
             *.gz)        gunzip $1      ;;
@@ -77,8 +80,15 @@ alias lsudo='sudo env PATH="$PATH"'                                             
 set -o emacs                                                                             ## enable emacs operation in command
 export ALTERNATE_EDITOR=""
 export EDITOR=emacsclient
-alias em='/usr/local/bin/emacs -nw'                                                                     ## quickly fire up emacs
 
+if [ -f /opt/local/bin/emacs ]; then
+    alias em='/opt/local/bin/emacs -nw'                                                                     ## quickly fire up emacs
+elif [ -f /usr/bin/emacs ]; then
+    alias em='/usr/bin/emacs -nw'
+elif [ -f /usr/local/bin/emacs ]; then
+    alias em='/usr/local/bin/emacs -nw'
+fi
+    
 # Misc tweaks
 alias left='xrandr --output VGA-0 --rotate left'                                         ## rotate screen left
 alias normal='xrandr --output VGA-0 --rotate normal'                                     ## rotate screen normal
