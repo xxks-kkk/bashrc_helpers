@@ -77,7 +77,7 @@ alias lsudo='sudo env PATH="$PATH"'                                             
 set -o emacs                                                                             ## enable emacs operation in command
 export ALTERNATE_EDITOR=""
 export EDITOR=emacsclient
-alias em='/opt/local/bin/emacs -nw'                                                                     ## quickly fire up emacs
+alias em='/usr/local/bin/emacs -nw'                                                                     ## quickly fire up emacs
 
 # Misc tweaks
 alias left='xrandr --output VGA-0 --rotate left'                                         ## rotate screen left
