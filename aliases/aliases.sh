@@ -1,3 +1,4 @@
+
 #!/bin/sh
 
 # Copyright (c) 2012 Adam Matan <adam@matan.name>
@@ -83,10 +84,10 @@ export EDITOR=emacsclient
 
 if [ -f /opt/local/bin/emacs ]; then
     alias em='/opt/local/bin/emacs -nw'                                                                     ## quickly fire up emacs
-elif [ -f /usr/bin/emacs ]; then
-    alias em='/usr/bin/emacs -nw'
 elif [ -f /usr/local/bin/emacs ]; then
     alias em='/usr/local/bin/emacs -nw'
+elif [ -f /usr/bin/emacs ]; then
+    alias em='/usr/bin/emacs -nw'
 fi
     
 # Misc tweaks
