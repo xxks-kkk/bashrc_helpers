@@ -19,8 +19,6 @@ fi
 
 # Command overrides
 alias tailf='tail -f '		     
-alias pbcopy='xsel --clipboard --input'                                                  ## copy input file to clipboard
-alias pbpaste='xsel --clipboard --input'                                                 ## paste clipboard to input file
 alias sshconfig='vi $HOME/.ssh/config'                                                   ## see current ssh config
 alias home="cd $HOME"                                                                    ## cd into home
 alias bashrc="vi $HOME/.bashrc"                                                          ## quickly edit .bashrc
@@ -129,6 +127,8 @@ elif [[ $platform == 'linux' ]]; then
         du -b --max-depth 1 | sort -nr | perl -pe 's{([0-9]+)}{sprintf "%.1f%s", $1>=2**30? ($1/2**30, "G"): $1>=2**20? ($1/2**20, "M"): $1>=2**10? ($1/2**10, "K"): ($1, "")}e';
     }
     alias port='netstat -tulanp'                                                             ## Show active ports
+    alias pbcopy='xsel --clipboard --input'                                                  ## copy input file to clipboard
+    alias pbpaste='xsel --clipboard --input'                                                 ## paste clipboard to input file    
 elif [[ $platform == 'windows' ]]; then
     # This part assumes to work with git bash
     alias python='winpty python.exe'
