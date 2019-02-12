@@ -26,6 +26,8 @@ __add_path_head "/usr/lib/go-1.10/bin"
 __add_path_head "${HOME}/cockroach-v1.1.7/src/github.com/cockroachdb/cockroach"
 __add_path_head "$HOME/.cargo/bin"
 
+# This is critical for racer-emacs works on emacs
+export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
 if [ `which $SHELL` = "/bin/ksh" ]; then
     DIR="$( cd "$( dirname "_[2]" )" && pwd )"

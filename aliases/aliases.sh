@@ -83,8 +83,8 @@ export EDITOR=emacsclient
 
 if [ -f /opt/local/bin/emacs ]; then
     alias em='/opt/local/bin/emacs -nw'                                                                     ## quickly fire up emacs
-elif [ -f /usr/bin/emacs ]; then
-    alias em='/usr/bin/emacs -nw'
+elif [ -f /usr/bin/emacs-25.3.50 ]; then
+    alias em='/usr/bin/emacs-25.3.50 -nw'
 fi
     
 # Misc tweaks
