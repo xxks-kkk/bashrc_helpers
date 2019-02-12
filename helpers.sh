@@ -68,9 +68,16 @@ source $DIR/prompt/prompt_two_lines_blue.sh
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/history/history_settings.sh
 
-
-cp $DIR/.gdbinit $HOME
-cp $DIR/.tmux.conf $HOME
+# Copy dotfiles the $HOME
+cp $DIR/dot_files/.gdbinit $HOME
+cp $DIR/dot_files/.tmux.conf $HOME
+# Setup to use alacritty terminal
+unamestr=`uname`
+if [[ "$unamestr" == 'Darwin' ]]; then
+    cp $DIR/dot_files/alacritty_macos.yml $HOME/.alacritty.yml
+else
+    cp $DIR/dot_files/alacritty.yml $HOME/.alacritty.yml
+fi
 
 
 # Get all the bin scripts
