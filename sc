@@ -6,6 +6,7 @@
 #      - https://gist.github.com/jehiah/855086
 # Sometimes, typescript contains unicode. We may want to use tool `konwert' to preprocess it.
 # Ref: - https://unix.stackexchange.com/questions/171832/converting-a-utf-8-file-to-ascii-best-effort
+# Usage: sc <script output filename>
 
 FILE=${1:-typescript}
 FILE_ASCII=$FILE-ascii
