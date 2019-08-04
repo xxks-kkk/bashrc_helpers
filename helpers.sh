@@ -25,6 +25,8 @@ __add_path_head "/lusr/opt/bochs-2.2.6-pintos/bin/"
 __add_path_head "/usr/lib/go-1.10/bin"
 __add_path_head "${HOME}/cockroach-v1.1.7/src/github.com/cockroachdb/cockroach"
 __add_path_head "$HOME/.cargo/bin"
+__add_path_head "/usr/local/go/bin"
+__add_path_head "${HOME}/go/bin"
 
 # This is critical for racer-emacs works on emacs
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
@@ -71,6 +73,8 @@ source $DIR/history/history_settings.sh
 # Copy dotfiles the $HOME
 cp $DIR/dot_files/.gdbinit $HOME
 cp $DIR/dot_files/.tmux.conf $HOME
+cp $DIR/dot_files/.ignore $HOME
+
 # Setup to use alacritty terminal
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
