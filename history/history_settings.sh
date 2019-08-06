@@ -13,7 +13,6 @@ HISTTIMEFORMAT="%d/%m/%y %T "
 shopt -s histappend                      # when the shell exists, append to history file instead of overwriting it
 
 # Steal from http://eli.thegreenplace.net/2013/06/11/keeping-persistent-history-in-bash
-
 log_bash_persistent_history()
 {
   [[
@@ -21,9 +20,14 @@ log_bash_persistent_history()
   ]]
   local date_part="${BASH_REMATCH[1]}"
   local command_part="${BASH_REMATCH[2]}"
+  if [[ "$command_part" =~ "cd" ]]; then
+      local pwd_part="$OLDPWD"
+  else
+      local pwd_part=$(pwd)
+  fi
   if [ "$command_part" != "$PERSISTENT_HISTORY_LAST" ]
   then
-    echo $date_part "|" "$command_part" >> ~/.persistent_history
+    echo $date_part "|" $pwd_part "|" "$command_part" >> ~/.persistent_history
     export PERSISTENT_HISTORY_LAST="$command_part"
   fi
 }
