@@ -90,9 +90,11 @@ fi
 # git checkout master
 
 
-# Merge the bin scripts to the local
+# Merge the bin scripts to the local if the local is not empty
 mkdir -p $HOME/bin
-cp $DIR/bin/* $HOME/bin
+if [ ! "$(ls -A $HOME/bin)" ]; then
+    cp $DIR/bin/* $HOME/bin
+fi
 
 
 cd
