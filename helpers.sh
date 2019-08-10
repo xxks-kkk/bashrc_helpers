@@ -104,6 +104,7 @@ fi
 # This scenario works best if I maintain a bin/ that contains some confidential scripts
 # and I write some public scripts that can be used in the future. It is laborious to
 # check the difference between the work bin/ and bin/ under repo periodically
+echo "Difference between $HOME/bin and $DIR/bin"
 diff -d $HOME/bin  $DIR/bin/
 
 cd

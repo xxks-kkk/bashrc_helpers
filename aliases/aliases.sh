@@ -80,7 +80,7 @@ set -o emacs                                                                    
 export ALTERNATE_EDITOR=""
 export EDITOR=emacsclient
 
-if [ -f /opt/local/bin/emacs && $platform != 'mac' ]; then
+if [[ -f /opt/local/bin/emacs && "$platform" != 'mac' ]]; then
     alias em='/opt/local/bin/emacs -nw'                                                  ## quickly fire up emacs
 elif [ -f /usr/bin/emacs-25.3.50 ]; then
     alias em='/usr/bin/emacs-25.3.50 -nw'
@@ -89,7 +89,7 @@ elif [ -f /usr/local/bin/emacs ]; then
 elif [ -f /usr/bin/emacs ]; then
     alias em='/usr/bin/emacs -nw'
 fi
-    
+
 # Misc tweaks
 alias left='xrandr --output VGA-0 --rotate left'                                         ## rotate screen left
 alias normal='xrandr --output VGA-0 --rotate normal'                                     ## rotate screen normal
