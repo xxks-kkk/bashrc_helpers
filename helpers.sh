@@ -29,7 +29,9 @@ __add_path_head "/usr/local/go/bin"
 __add_path_head "${HOME}/go/bin"
 
 # This is critical for racer-emacs works on emacs
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+if [ ! -z `which rustc` ]; then
+    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+fi
 
 if [ `which $SHELL` = "/bin/ksh" ]; then
     DIR="$( cd "$( dirname "_[2]" )" && pwd )"
@@ -42,6 +44,7 @@ fi
 # un/mark name : bookmark a directory or remove one (unmark)
 # jump name : jump to directory
 # marks : show all bookmarks
+# BUG: works best on linux, not Mac
 export MARKPATH=$HOME/.marks
 function jump {
     cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
@@ -96,6 +99,12 @@ if [ ! "$(ls -A $HOME/bin)" ]; then
     cp $DIR/bin/* $HOME/bin
 fi
 
+# Let's get a list of files difference between $HOME/bin and bin under repo
+# so that we can copy necessary files back to the repo
+# This scenario works best if I maintain a bin/ that contains some confidential scripts
+# and I write some public scripts that can be used in the future. It is laborious to
+# check the difference between the work bin/ and bin/ under repo periodically
+diff -d $HOME/bin  $DIR/bin/
 
 cd
 clear
