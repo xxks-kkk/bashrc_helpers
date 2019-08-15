@@ -34,6 +34,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias treed="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'" ## Expand current directory structure in tree form
 alias logs="find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f" ## Tail all logs in /var/log
+alias mkdir="mkdir -p"
 
 # Utility functions
 up() { cd $(eval printf '../'%.0s {1..$1}) && pwd; }                                     ## Move 'up' so many directories instead of using several cd ../../, etc.
