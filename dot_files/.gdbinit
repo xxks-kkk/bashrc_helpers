@@ -22,3 +22,6 @@ set history expansion on
 # Load all project-specific .gdbinit
 # Ref: https://stackoverflow.com/questions/2045509/how-to-save-settings-in-gdb
 add-auto-load-safe-path /
+
+# For Mac
+set startup-with-shell off
