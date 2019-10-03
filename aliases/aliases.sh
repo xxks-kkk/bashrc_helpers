@@ -71,6 +71,7 @@ alias gl="git pull"
 alias ga="git add"
 alias gsync="git fetch upstream; git pull upstream master"                               ## sync the fork with the upstream (prereq: `git remote add upstream <url>`)
 alias gc="git config --global user.name \"xxks-kkk\"; git config --global user.email \"ferrishu3886@gmail.com\"; git commit"
+alias gb="git branch"
 
 # LaTex related
 alias latexmgrgui='sudo env PATH="$PATH" tlmgr --gui'                                    ## bring up latex manager gui
