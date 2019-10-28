@@ -86,6 +86,10 @@ else
     cp $DIR/dot_files/alacritty.yml $HOME/.alacritty.yml
 fi
 
+# Configure .git
+## Purpose: https://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time
+git config --global push.default current
+
 
 # Get all the bin scripts
 # cd $DIR/bin
