@@ -111,5 +111,8 @@ fi
 echo "Difference between $HOME/bin and $DIR/bin"
 diff -d $HOME/bin  $DIR/bin/
 
+# Amazon Daily Setup Process
+python3 $HOME/bin/mwdaily.py
+
 cd
 clear
