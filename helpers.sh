@@ -112,11 +112,11 @@ echo "Difference between $HOME/bin and $DIR/bin"
 diff -d $HOME/bin  $DIR/bin/
 
 # Amazon Daily Setup Process
-if [ -e $HOM/bin/mwdaily.py ];then
-    python3 $HOME/bin/mwdaily.py
-else
-    mwinit -o
-fi
+# if [ -e $HOM/bin/mwdaily.py ];then
+#     python3 $HOME/bin/mwdaily.py
+# else
+#     mwinit -o
+# fi
 
 cd
 clear
