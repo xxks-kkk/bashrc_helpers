@@ -9,6 +9,8 @@
 
 alias bb="brazil-build"
 alias gc="git config --global user.name \"zeyuanhu\"; git config --global user.email \"zeyuanhu@amazon.com\"; git commit"
+alias lt="cd /home/zeyuanhu/workplace/local_test/src/Local_tests"
+alias bbr=" brazil-build clean && brazil-build release"
 
 # AFPCLI related variables
 export PATH="$PATH:/apollo/env/AWSForecastingPlatformServiceCLI/bin"
