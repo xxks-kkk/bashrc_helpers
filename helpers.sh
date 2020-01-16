@@ -77,6 +77,7 @@ source $DIR/history/history_settings.sh
 cp $DIR/dot_files/.gdbinit $HOME
 cp $DIR/dot_files/.tmux.conf $HOME
 cp $DIR/dot_files/.ignore $HOME
+cp $DIR/dot_files/.mutagen.yml $HOME
 
 # Setup to use alacritty terminal
 unamestr=`uname`
