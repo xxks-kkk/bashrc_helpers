@@ -1,4 +1,4 @@
-#!/bin/sh -vx
+#!/bin/bash -vx
 
 # Copyright (c) 2012 Adam Matan <adam@matan.name>
 # Copyright (c) 2018 Zeyuan Hu <ferrishu3886@gmail.com>
@@ -68,7 +68,9 @@ _completemarks() {
 complete -F _completemarks jump unmark
 ################################################################################
 
+# Source setup files contained in the repo
 source $DIR/aliases/aliases.sh
+source $DIR/aliases/amazon.sh
 source $DIR/prompt/prompt_two_lines_blue.sh
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/history/history_settings.sh
@@ -111,13 +113,6 @@ fi
 # check the difference between the work bin/ and bin/ under repo periodically
 echo "Difference between $HOME/bin and $DIR/bin"
 diff -d $HOME/bin  $DIR/bin/
-
-# Amazon Daily Setup Process
-# if [ -e $HOM/bin/mwdaily.py ];then
-#     python3 $HOME/bin/mwdaily.py
-# else
-#     mwinit -o
-# fi
 
 cd
 clear
