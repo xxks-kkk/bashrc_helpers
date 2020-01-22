@@ -27,6 +27,8 @@ __add_path_head "${HOME}/cockroach-v1.1.7/src/github.com/cockroachdb/cockroach"
 __add_path_head "$HOME/.cargo/bin"
 __add_path_head "/usr/local/go/bin"
 __add_path_head "${HOME}/go/bin"
+__add_path_head "/Applications/CMake.app/Contents/bin"
+__add_path_head "/usr/local/Cellar/llvm/9.0.0_1/bin"
 
 # This is critical for racer-emacs works on emacs
 if [ ! -z `which rustc` ]; then
@@ -70,7 +72,7 @@ complete -F _completemarks jump unmark
 
 # Source setup files contained in the repo
 source $DIR/aliases/aliases.sh
-source $DIR/aliases/amazon.sh
+# source $DIR/aliases/amazon.sh
 source $DIR/prompt/prompt_two_lines_blue.sh
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/history/history_settings.sh

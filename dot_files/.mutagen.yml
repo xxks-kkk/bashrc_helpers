@@ -2,3 +2,12 @@ sync:
   defaults:
     ignore:
       vcs: true
+      paths:
+        - "build"
+        - ".DS_Store"
+        - "._*"
+        - "*~"
+        - "*.sw[a-p]"
+        - "env"
+        - "*.bak"
+        - "*.log"        
