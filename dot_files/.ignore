@@ -1,7 +1,6 @@
 # ignore file used by ag (https://github.com/ggreer/the_silver_searcher/wiki/Advanced-Usage)
 vendor/
 pkg/
-src/
 docker-build/
 playbook/
 README
