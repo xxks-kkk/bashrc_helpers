@@ -10,4 +10,5 @@ sync:
         - "*.sw[a-p]"
         - "env"
         - "*.bak"
-        - "*.log"        
+        - "*.log"
+        - "projectile-bookmarks.eld"

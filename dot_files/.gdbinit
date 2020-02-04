@@ -25,3 +25,6 @@ add-auto-load-safe-path /
 
 # For Mac
 set startup-with-shell off
+
+# keep trailing space on next line (https://ongardie.net/blog/gdb-color/)
+set prompt \033[0;33m(gdb)\033[0m 
