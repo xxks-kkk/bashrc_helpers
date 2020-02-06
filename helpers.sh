@@ -82,6 +82,8 @@ cp $DIR/dot_files/.gdbinit $HOME
 cp $DIR/dot_files/.tmux.conf $HOME
 cp $DIR/dot_files/.ignore $HOME
 cp $DIR/dot_files/.mutagen.yml $HOME
+cp $DIR/dot_files/.vimrc $HOME
+cp -r $DIR/dot_files/.vim $HOME/.vim
 
 # Setup to use alacritty terminal
 unamestr=`uname`
