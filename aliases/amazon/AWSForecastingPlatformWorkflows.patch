@@ -1,0 +1,24 @@
+diff --git a/configuration/brazil-config/app/AWSForecastingPlatformWorkflows.cfg b/configuration/brazil-config/app/AWSForecastingPlatformWorkflows.cfg
+index 788c16a..c1a529c 100644
+--- a/configuration/brazil-config/app/AWSForecastingPlatformWorkflows.cfg
++++ b/configuration/brazil-config/app/AWSForecastingPlatformWorkflows.cfg
+@@ -29,13 +29,13 @@ test.*.log4j2.rootLogger.appenderRefs = (STDOUT_APPENDER, LOG_FILE_APPENDER);
+ *.*.QuerylogHelper.filename=$ROOT/var/output/logs/service_log;
+ *.*.QuerylogHelper.timeZone=UTC;
+ 
+-Development.*.awsforecasting.platform.credentials = "com.amazon.awsforecasting.platform.development.service.$USER";
++Development.*.awsforecasting.platform.credentials = "com.amazon.awsforecasting.platform.development.service.yunyao";
+ Development.*.awsforecasting.platform.encryption = "com.amazon.awsforecasting.platform.development.encryption.pdx";
+-Development.*.awsforecasting.platform.bucket = "awsforecastingplatform-$REALM-$USER";
+-Development.*.awsforecasting.platform.queue.java = "pipelineforecasting-$USER";
+-Development.*.awsforecasting.platform.queue.r = "pipelineforecasting-$USER";
+-Development.*.awsforecasting.platform.queue.python = "pipelineforecasting-python-$USER";
+-Development.*.awsforecasting.platform.queue.ql = "pipelineforecasting-$USER";
++Development.*.awsforecasting.platform.bucket = "awsforecastingplatform-$REALM-yunyao";
++Development.*.awsforecasting.platform.queue.java = "pipelineforecasting-yunyao";
++Development.*.awsforecasting.platform.queue.r = "pipelineforecasting-yunyao";
++Development.*.awsforecasting.platform.queue.python = "pipelineforecasting-python-yunyao";
++Development.*.awsforecasting.platform.queue.ql = "pipelineforecasting-yunyao";
+ 
+ *.*.awsforecasting.platform.bucket = "awsforecastingplatform-$REALM-$DOMAIN";
+ *.*.awsforecasting.platform.swf.domain = "AFP:Forecast:Shared";
