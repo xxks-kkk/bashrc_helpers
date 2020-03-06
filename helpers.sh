@@ -29,6 +29,19 @@ __add_path_head "/usr/local/go/bin"
 __add_path_head "${HOME}/go/bin"
 __add_path_head "/Applications/CMake.app/Contents/bin"
 __add_path_head "/usr/local/Cellar/llvm/9.0.0_1/bin"
+__add_path_head "/usr/local/smlnj/bin"
+
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Darwin' ]]; then
+    platform='mac'
+elif [ -f /etc/redhat-release ]; then
+    platform='rhel'
+elif [[ "$unamestr" == "Linux" ]]; then
+    platform='linux'
+elif [[ "$unamestr" = *"MINGW64_NT"* ]]; then
+    platform='windows'
+fi
 
 # This is critical for racer-emacs works on emacs
 if [ ! -z `which rustc` ]; then
@@ -72,10 +85,12 @@ complete -F _completemarks jump unmark
 
 # Source setup files contained in the repo
 source $DIR/aliases/aliases.sh
-source $DIR/aliases/amazon/amazon.sh
 source $DIR/prompt/prompt_two_lines_blue.sh
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/history/history_settings.sh
+
+# Setup additionaly utilities based on the current environment
+source $DIR/aliases/amazon/amazon.sh
 
 # Copy dotfiles the $HOME
 cp $DIR/dot_files/.gdbinit $HOME
@@ -117,6 +132,9 @@ fi
 # check the difference between the work bin/ and bin/ under repo periodically
 echo "Difference between $HOME/bin and $DIR/bin"
 diff -d $HOME/bin  $DIR/bin/
+
+# necessary to make emacs looks nice in terminal
+export TERM=xterm-256color
 
 cd
 clear

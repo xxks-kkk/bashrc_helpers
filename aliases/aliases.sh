@@ -5,18 +5,6 @@
 # Copyright (c) 2018 Zeyuan Hu <ferrishu3886@gmail.com>
 # See the file license.txt for copying permission.
 
-platform='unknown'
-unamestr=`uname`
-if [[ "$unamestr" == 'Darwin' ]]; then
-    platform='mac'
-#elif [ -f /etc/redhat-release ]; then
-#    platform='rhel'
-elif [[ "$unamestr" == "Linux" ]]; then
-    platform='linux'
-elif [[ "$unamestr" = *"MINGW64_NT"* ]]; then
-    platform='windows'
-fi
-
 # Command overrides
 alias tailf='tail -f '		     
 alias sshconfig='vi $HOME/.ssh/config'                                                   ## see current ssh config
@@ -72,6 +60,7 @@ alias ga="git add"
 alias gsync="git fetch upstream; git pull upstream master"                               ## sync the fork with the upstream (prereq: `git remote add upstream <url>`)
 alias gc="git config --global user.name \"xxks-kkk\"; git config --global user.email \"ferrishu3886@gmail.com\"; git commit"
 alias gb="git branch"
+git config --global core.editor vim
 
 # LaTex related
 alias latexmgrgui='sudo env PATH="$PATH" tlmgr --gui'                                    ## bring up latex manager gui
@@ -110,8 +99,9 @@ fi
 
 if [[ $platform == 'rhel' ]]; then
     # Enable Red Hat Developer Toolset
-    source /opt/rh/devtoolset-2/enable
-    /usr/bin/setxkbmap -option "ctrl:swapcaps"                                               ## switch ctrl with caps
+    # source /opt/rh/devtoolset-2/enable
+    #/usr/bin/setxkbmap -option "ctrl:swapcaps"                                               ## switch ctrl with caps
+    pass
 elif [[ $platform == 'mac' ]]; then
     #unset PYTHONPATH;                                                                       ## This is for python3
     export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages                     ## Do this "export PYTHONPATH=$PYTHONPATH:/usr/local/lib/python2.7/site-packages" before using python2. Now the system by default will use python2
