@@ -99,6 +99,12 @@ cp $DIR/dot_files/.ignore $HOME
 cp $DIR/dot_files/.mutagen.yml $HOME
 cp $DIR/dot_files/.vimrc $HOME
 cp -r $DIR/dot_files/.vim $HOME/.vim
+cp $DIR/dot_files/.git-completion.bash $HOME/.git-completion.bash
+
+# Enables the git autocompletion script
+if [ -f ~/.git-completion.bash ]; then
+    . ~/.git-completion.bash
+fi
 
 # Setup to use alacritty terminal
 unamestr=`uname`
