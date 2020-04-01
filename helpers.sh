@@ -99,6 +99,8 @@ cp $DIR/dot_files/.ignore $HOME
 cp $DIR/dot_files/.mutagen.yml $HOME
 cp $DIR/dot_files/.vimrc $HOME
 cp -r $DIR/dot_files/.vim $HOME/.vim
+cp $DIR/dot_files/.gitconfig $HOME/.gitconfig
+cp $DIR/dot_files/.git-commit-template $HOME/.git-commit-template
 
 # Setup to use alacritty terminal
 unamestr=`uname`

@@ -1,0 +1,9 @@
+[push]
+	default = current
+[user]
+	name = zeyuanhu
+	email = zeyuanhu@amazon.com
+[core]
+	editor = vim
+[commit]
+        template = ~/.git-commit-template
