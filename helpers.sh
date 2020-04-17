@@ -120,18 +120,10 @@ fi
 ## Purpose: https://stackoverflow.com/questions/6089294/why-do-i-need-to-do-set-upstream-all-the-time
 git config --global push.default current
 
-
-# Get all the bin scripts
-# cd $DIR/bin
-# git submodule update --init --recursive
-# git checkout master
-
-
-# Merge the bin scripts to the local if the local is not empty
+# Merge the bin scripts to the local
 mkdir -p $HOME/bin
-if [ ! "$(ls -A $HOME/bin)" ]; then
-    cp $DIR/bin/* $HOME/bin
-fi
+cp $DIR/bin/* $HOME/bin
+
 
 # Let's get a list of files difference between $HOME/bin and bin under repo
 # so that we can copy necessary files back to the repo
