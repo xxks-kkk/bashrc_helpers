@@ -1,0 +1,156 @@
+#!/bin/sh
+
+###################################################################
+#
+# db2mun - mundane db2 commands 
+#
+# Collects mundane and high frequently used
+# DB2 commands. Free the labor of repetitive
+# typing.
+#
+# USAGE
+#
+#   db2mun <option>
+#
+# OPTION
+#
+#        --help       display help manual
+#   -n | --nah        commands will NOT be executed on behalf of user
+#
+# AUTHOR
+#
+#   Zeyuan Hu <ferrishu3886@gmail.com>
+#
+# REVISION:
+# 01/05/16: Initial release
+#
+# LICENSE:
+#
+# This program can be redistributed and/or modified under the terms
+# the GNU Public License, version 2.
+###################################################################
+
+#******************************************************************
+# Function Area
+#******************************************************************
+
+#------------------------------------------------------------------
+# Function: show_help
+#
+# Display help manual for this toy
+#------------------------------------------------------------------
+
+show_help()
+{
+    cat <<@EOF
+db2mun -- Free you from reptitive typing of commonly used db2 commands
+
+Disclaimer:
+    This tool does NOT come with warranty. Use on your own risk.
+
+Feature:
+
+
+Convention:
+    [] Parameters shown inside brackets are required and must be provided
+    <> Parameters shown inside angle brackets are optional and do not have to be provided
+    |  Vertical bars indicate that one (and only one) item in the list of items presented can be specified
+
+Syntax:
+
+--help  display this help guide
+
+Bugs:
+
+    For bugs, please send to Zeyuan Hu <hzyhuhzy@cn.ibm.com>. Thanks!
+@EOF
+}
+
+#------------------------------------------------------------------
+# Function: er
+#
+# Utility function. Echo the db2 command and then execute it
+#------------------------------------------------------------------
+er()
+{
+    echo "$@"
+    tmp=$@
+    tmp=${tmp:4}
+    exec db2 "$tmp"
+}
+
+#------------------------------------------------------------------
+# Function: statements
+#
+# Commonly used db2 commands
+#------------------------------------------------------------------
+statements()
+{
+    if [ "$1" -eq 1 ]; then
+        read -p "servername: " servername
+        er "db2 \"select char(option,10) OPTION, char(setting,10) SETTING from syscat.serveroptions where servername='$servername'\""
+    elif [ "$1" -eq 2 ]; then
+        er "db2 list db directory"
+    elif [ "$1" -eq 3 ]; then
+        read -p "schema name: " schemaname
+        er "db2 list tables for schema $schemaname"
+    elif [ "$1" -eq 4 ]; then
+        read -p "table name: " tablename
+        er "db2 describe table $tablename"
+    elif [ "$1" -eq 5 ]; then
+        er "db2 select char(WRAPNAME, 10) WRAPNAME, char(SERVERNAME, 10) SERVERNAME, char(SERVERTYPE,10) SERVERTYPE, char(SERVERVERSION, 10) SERVERVERSION, char(OPTION,40) OPTION, char(SETTING, 10) SETTING from syscat.serveroptions"
+    fi
+}
+
+#------------------------------------------------------------------
+# Function: display
+#
+# Display options to choose
+#------------------------------------------------------------------
+display()
+{
+    maxPrompt=5 ## number of prompts we have (need to update manually)
+    while true; do
+        echo "--------- System Catalog ---------"
+        printf "%d. %s\n" 1 "Check the default Federation Server option in System Catalog"
+        printf "\n"
+        echo "---------      Misc      ---------"
+        printf "%d. %s\n" 2 "Show current available databases"
+        printf "%d. %s\n" 3 "Retrieve all table names for a given schema"
+        printf "%d. %s\n" 4 "Describe table"
+        printf "%d. %s\n" 5 "Display all server options"
+        read ans
+        if [ $ans -ge 0 -a $ans -le $maxPrompt  2> /dev/null ]; then
+            statements $ans
+        fi
+    done
+}
+
+#******************************************************************
+# Main Area
+#******************************************************************
+setHelp=0
+
+
+TEMP=`getopt -o hn --long help,nah -n 'db2mun' -- "$@"`
+
+rc=$?
+if [ $rc != 0 ] ; then 
+    echo "Try 'db2mun --help' for more information." >&2 
+    exit 1 
+fi
+
+eval set -- "$TEMP"
+
+while true; do
+    case "$1" in
+        -h | --help    ) show_help; setHelp=1; shift ;;
+        --             ) shift ; break;;
+        *              ) break;;
+    esac
+done
+
+if [ "$setHelp" -eq 0 ] ; then
+    display
+fi
+

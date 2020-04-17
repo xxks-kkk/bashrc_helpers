@@ -1,0 +1,45 @@
+#!/bin/sh
+
+#####################################
+# Create production env setup tar
+# 
+# Modified: Zeyuan Hu 
+#
+# This will create a tar file 'hzy.tar', which
+# contains all my production environment setup.
+# You can copy 'hzy.tar' to your local account
+# and untar it. Then, you can have an environment
+# that is ready for development work.
+#
+# To find details of setup, please reference 
+# "$HOME/bin/README.md"
+#
+# To create your own setup tar, you only
+# need to modify files in 'hzy_backup_list'
+# and then run this script.
+#
+# Usage: backmeup [list name (default val:'hzy_backup_list')]
+#
+# NO WARRANTY
+#####################################
+
+# Parameter Expansion (https://stackoverflow.com/questions/27445455/what-does-the-colon-dash-mean-in-bash)
+LIST=${1:-~/bin/hzy_backup_list}
+
+case `uname` in
+AIX)
+    cd ~ && tar -cf hzy.tar -L $LIST
+    ;;
+Linux)
+    cd ~ && tar -cf hzy.tar -T $LIST
+    ;;
+SunOS)
+    cd ~ && tar -cf hzy.tar -I $LIST
+    ;;
+Darwin)
+    cd ~ && tar -cf hzy.tar -I $LIST
+    ;;
+*)
+    ;;
+esac
+

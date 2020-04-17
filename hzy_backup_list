@@ -1,0 +1,8 @@
+bin/backmeup
+bin/hzy_backup_list
+bin/h2d
+bin/d2h
+bin/db2mun
+bin/backup_history.sh
+bin/endian.c
+bin/stack.c

@@ -1,0 +1,27 @@
+#!/bin/sh
+
+# Find out th CPU processor name
+cat /proc/cpuinfo | grep 'model name' | uniq
+
+# Find the number of processors
+printf 'num of processors: %s\n' $(grep -c ^processor /proc/cpuinfo)
+
+# Find out th kernel version
+printf "Kernel version: %s\n" $(uname -r)
+
+# Find out the OS information
+# Support platform: Ubuntu platform
+(lsb_release -a 2>/dev/null | grep "Description") || echo "Unsupported platform" 
+
+# Find out the memory size
+z=$(awk '/MemTotal/ {print $2}' /proc/meminfo)
+printf "Memory size: %s GB\n" $(awk -v z=$z 'BEGIN{ print z / 1000000}')
+
+# Find out the disks
+printf "\nDisk Info: \n"
+printf "Note: to see details of each disk, use 'lshw -class disk'\n"
+lsblk -io KNAME,TYPE,SIZE,MODEL | awk '{if ($2 == "disk" || NR == 1) print $0}'
+
+# Find out the cache information
+printf "\nCache Info: \n"
+getconf -a | grep CACHE
