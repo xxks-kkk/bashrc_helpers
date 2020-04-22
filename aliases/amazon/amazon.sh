@@ -15,12 +15,9 @@ __add_path_head "$HOME/.local/bin"
 __add_path_head "$HOME/.local/python-3.6.10/bin"
 __add_path_head "/home/zeyuanhu/apache-maven-3.6.3/bin"
 
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home
-export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.41.x86_64
-export JAVA_HOME=/usr/lib/jvm/amazon-openjdk-8
-
 if [[ $platform == 'rhel' ]]; then
     export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-bundle.crt
+    export JAVA_HOME=/usr/lib/jvm/amazon-openjdk-8
 elif [[ $platform == 'mac' ]]; then
     export REQUESTS_CA_BUNDLE="$HOME/.mac-ca-roots"
     export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home
