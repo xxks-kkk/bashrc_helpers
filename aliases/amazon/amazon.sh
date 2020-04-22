@@ -9,7 +9,7 @@ alias gca="git config --global user.name \"zeyuanhu\"; git config --global user.
 alias lt="cd /home/zeyuanhu/workplace/local_test/src/Local_tests"
 alias bbr="brazil-build clean && brazil-build release"
 alias bbs="brazil-build server"
-alias bws="brazil workspace show" # Find the version set used by the current workspace
+alias bws="brazil workspace"
 
 __add_path_head "$HOME/.local/bin"
 __add_path_head "$HOME/.local/python-3.6.10/bin"
