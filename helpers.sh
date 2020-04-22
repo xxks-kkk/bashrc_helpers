@@ -30,6 +30,7 @@ __add_path_head "${HOME}/go/bin"
 __add_path_head "/Applications/CMake.app/Contents/bin"
 __add_path_head "/usr/local/Cellar/llvm/9.0.0_1/bin"
 __add_path_head "/usr/local/smlnj/bin"
+__add_path_head "$HOME/.rbenv/bin"
 
 platform='unknown'
 unamestr=`uname`
@@ -135,6 +136,11 @@ diff -d $HOME/bin  $DIR/bin/
 
 # necessary to make emacs looks nice in terminal
 export TERM=xterm-256color
+
+# ruby setup
+if which rbenv > /dev/null; then
+   eval "$(rbenv init -)"
+fi
 
 cd
 clear
