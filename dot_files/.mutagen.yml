@@ -3,7 +3,6 @@ sync:
     ignore:
       vcs: true
       paths:
-        - "build"
         - ".DS_Store"
         - "._*"
         - "*~"
@@ -12,3 +11,5 @@ sync:
         - "*.bak"
         - "*.log"
         - "projectile-bookmarks.eld"
+    symlink:
+        mode: "ignore"
