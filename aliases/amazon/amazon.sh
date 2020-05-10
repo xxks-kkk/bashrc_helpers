@@ -20,7 +20,6 @@ if [[ $platform == 'rhel' ]]; then
     export JAVA_HOME=/usr/lib/jvm/amazon-openjdk-8
 elif [[ $platform == 'mac' ]]; then
     export REQUESTS_CA_BUNDLE="$HOME/.mac-ca-roots"
-    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home
 fi
 
 alias goshawk='export GOSHAWK_TOKEN=$(aws goshawk get-authorization-token --domain-name amazon --output text --profile prestobuild)'

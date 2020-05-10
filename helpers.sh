@@ -31,6 +31,11 @@ __add_path_head "/Applications/CMake.app/Contents/bin"
 __add_path_head "/usr/local/Cellar/llvm/9.0.0_1/bin"
 __add_path_head "/usr/local/smlnj/bin"
 __add_path_head "$HOME/.rbenv/bin"
+__add_path_head "/Users/zyh/Downloads/apache-maven-3.6.3/bin"
+__add_path_head "$HOME/.jenv/bin"
+
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home
 
 platform='unknown'
 unamestr=`uname`
@@ -140,6 +145,21 @@ export TERM=xterm-256color
 # ruby setup
 if which rbenv > /dev/null; then
    eval "$(rbenv init -)"
+fi
+
+# jenv setup
+if which jenv > /dev/null; then
+    export JENV_ROOT=/usr/local/opt/jenv
+    eval "$(jenv init -)"
+    # ensure that JAVA_HOME is correct
+    jenv enable-plugin export
+    # make Maven aware of the Java version in use (and switch when your project does)
+    jenv enable-plugin maven
+    for version in 11 13
+    do
+        jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-$version.jdk/Contents/Home
+    done
+    jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home
 fi
 
 cd
