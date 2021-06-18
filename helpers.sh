@@ -33,6 +33,7 @@ __add_path_head "/usr/local/smlnj/bin"
 __add_path_head "$HOME/.rbenv/bin"
 __add_path_head "/Users/zyh/Downloads/apache-maven-3.6.3/bin"
 __add_path_head "$HOME/.jenv/bin"
+__add_path_head "/Applications/Racket v7.9/bin"
 
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home
