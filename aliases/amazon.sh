@@ -10,6 +10,7 @@ alias lt="cd /home/zeyuanhu/workplace/local_test/src/Local_tests"
 alias bbr="brazil-build clean && brazil-build release"
 alias bbs="brazil-build server"
 alias bws="brazil workspace"
+alias awslocal="START_WEB=0 USE_LIGHT_IMAGE=1 SERVICES='dynamodb,sqs,s3,kms' TMPDIR=/private$TMPDIR localstack start --docker"
 
 __add_path_head "$HOME/.local/bin"
 __add_path_head "$HOME/.local/python-3.6.10/bin"

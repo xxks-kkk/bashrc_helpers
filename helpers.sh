@@ -97,7 +97,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/history/history_settings.sh
 
 # Setup additionaly utilities based on the current environment
-source $DIR/aliases/amazon/amazon.sh
+source $DIR/aliases/amazon.sh
 
 # Copy dotfiles the $HOME
 cp $DIR/dot_files/.gdbinit $HOME
