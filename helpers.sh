@@ -34,6 +34,7 @@ __add_path_head "$HOME/.rbenv/bin"
 __add_path_head "/Users/zyh/Downloads/apache-maven-3.6.3/bin"
 __add_path_head "$HOME/.jenv/bin"
 __add_path_head "/Applications/Racket v7.9/bin"
+__add_path_head "/Users/zyh/Downloads/apache-ant-1.10.11/bin"
 
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
 #export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home
@@ -97,7 +98,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $DIR/history/history_settings.sh
 
 # Setup additionaly utilities based on the current environment
-source $DIR/aliases/amazon.sh
+# source $DIR/aliases/amazon.sh
 
 # Copy dotfiles the $HOME
 cp $DIR/dot_files/.gdbinit $HOME
