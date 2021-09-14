@@ -71,12 +71,16 @@ set -o emacs                                                                    
 export ALTERNATE_EDITOR=""
 export EDITOR=emacsclient
 
+# TODO: For Ubuntu, checking for emacs can be improved by following
+# https://garywoodfine.com/use-pbcopy-on-ubuntu/
 if [[ -f /opt/local/bin/emacs && "$platform" != 'mac' ]]; then
     alias em='/opt/local/bin/emacs -nw'                                                  ## quickly fire up emacs
 elif [ -e /usr/local/bin/emacs ]; then
     alias em='/usr/local/bin/emacs -nw'
 elif [ -f /usr/bin/emacs ]; then
     alias em='/usr/bin/emacs -nw'
+elif [ -f /snap/bin/emacs ]; then
+    alias em='/snap/bin/emacs -nw'
 fi
 
 # Misc tweaks
@@ -100,7 +104,7 @@ fi
 if [[ $platform == 'rhel' ]]; then
     # Enable Red Hat Developer Toolset
     # source /opt/rh/devtoolset-2/enable
-    #/usr/bin/setxkbmap -option "ctrl:swapcaps"                                               ## switch ctrl with caps
+    #/usr/bin/setxkbmap -option "ctrl:swapcaps"                                              ## switch ctrl with caps
     pass
 elif [[ $platform == 'mac' ]]; then
     #unset PYTHONPATH;                                                                       ## This is for python3
@@ -118,8 +122,8 @@ elif [[ $platform == 'linux' ]]; then
         du -b --max-depth 1 | sort -nr | perl -pe 's{([0-9]+)}{sprintf "%.1f%s", $1>=2**30? ($1/2**30, "G"): $1>=2**20? ($1/2**20, "M"): $1>=2**10? ($1/2**10, "K"): ($1, "")}e';
     }
     alias port='netstat -tulanp'                                                             ## Show active ports
-    alias pbcopy='xsel --clipboard --input'                                                  ## copy input file to clipboard
-    alias pbpaste='xsel --clipboard --input'                                                 ## paste clipboard to input file    
+    alias pbcopy='xclip -selection clipboard'                                                ## copy input file to clipboard; more details see https://garywoodfine.com/use-pbcopy-on-ubuntu/
+    alias pbpaste='xclip -selection clipboard -o'                                            ## paste clipboard to input file    
 elif [[ $platform == 'windows' ]]; then
     # This part assumes to work with git bash
     alias python='winpty python.exe'
