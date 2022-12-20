@@ -35,9 +35,11 @@ __add_path_head "/Users/zyh/Downloads/apache-maven-3.6.3/bin"
 __add_path_head "$HOME/.jenv/bin"
 __add_path_head "/Applications/Racket v7.9/bin"
 __add_path_head "/Users/zyh/Downloads/apache-ant-1.10.11/bin"
+__add_path_head "/usr/lib/jvm"
 
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-13.0.1.jdk/Contents/Home
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home
+# LDBC Datagen (https://github.com/ldbc/ldbc_snb_datagen_spark)
+export SPARK_HOME="/opt/spark-3.1.2-bin-hadoop3.2"
+__add_path_head "$SPARK_HOME/bin"
 
 platform='unknown'
 unamestr=`uname`
@@ -150,6 +152,9 @@ if which rbenv > /dev/null; then
 fi
 
 # jenv setup
+if [[ $platform == 'linux' ]]; then
+    eval "$(jenv init -)"
+else
 if which jenv > /dev/null; then
     export JENV_ROOT=/usr/local/opt/jenv
     eval "$(jenv init -)"
@@ -162,6 +167,7 @@ if which jenv > /dev/null; then
         jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-$version.jdk/Contents/Home
     done
     jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home
+fi
 fi
 
 cd
