@@ -101,7 +101,7 @@ source $DIR/history/history_settings.sh
 
 # Setup additionaly utilities based on the current environment
 # source $DIR/aliases/amazon.sh
-source $DIR/aliases/microsoft.sh
+# source $DIR/aliases/microsoft.sh
 
 # Copy dotfiles the $HOME
 cp $DIR/dot_files/.gdbinit $HOME
