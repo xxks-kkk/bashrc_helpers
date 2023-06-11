@@ -36,6 +36,7 @@ __add_path_head "$HOME/.jenv/bin"
 __add_path_head "/Applications/Racket v7.9/bin"
 __add_path_head "/Users/zyh/Downloads/apache-ant-1.10.11/bin"
 __add_path_head "/usr/lib/jvm"
+__add_path_head "/Applications/Postgres.app/Contents/Versions/14/bin"
 
 # LDBC Datagen (https://github.com/ldbc/ldbc_snb_datagen_spark)
 export SPARK_HOME="/opt/spark-3.1.2-bin-hadoop3.2"
@@ -168,6 +169,7 @@ if which jenv > /dev/null; then
         jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-$version.jdk/Contents/Home
     done
     jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_251.jdk/Contents/Home
+    jenv add /Library/Java/JavaVirtualMachines/jdk-11.0.2.jdk/Contents/Home
 fi
 fi
 
