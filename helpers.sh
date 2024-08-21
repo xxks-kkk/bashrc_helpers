@@ -37,6 +37,7 @@ __add_path_head "/Applications/Racket v7.9/bin"
 __add_path_head "/Users/zyh/Downloads/apache-ant-1.10.11/bin"
 __add_path_head "/usr/lib/jvm"
 __add_path_head "/Applications/Postgres.app/Contents/Versions/14/bin"
+__add_path_head "/home/zeyuanhu/software/latex24/bin/x86_64-linux"
 
 # LDBC Datagen (https://github.com/ldbc/ldbc_snb_datagen_spark)
 export SPARK_HOME="/opt/spark-3.1.2-bin-hadoop3.2"
