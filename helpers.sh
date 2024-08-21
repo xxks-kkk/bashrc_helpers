@@ -174,5 +174,8 @@ if which jenv > /dev/null; then
 fi
 fi
 
+# https://github.com/rupa/z
+. $HOME/bin/z.sh
+
 cd
 clear
