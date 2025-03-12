@@ -177,5 +177,8 @@ fi
 # https://github.com/rupa/z
 . $HOME/bin/z.sh
 
+# set the terminator tab title to the cwd
+PS1=$PS1'\[\e]2;\W\a\]'
+
 cd
 clear
