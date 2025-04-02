@@ -38,6 +38,25 @@ __add_path_head "/Users/zyh/Downloads/apache-ant-1.10.11/bin"
 __add_path_head "/usr/lib/jvm"
 __add_path_head "/Applications/Postgres.app/Contents/Versions/14/bin"
 __add_path_head "/home/zeyuanhu/software/latex24/bin/x86_64-linux"
+__add_path_head "/home/zeyuanhu/.dotnet"
+
+# if a directory exists and not already in $LD_LIBRARY_PATH, add it to $LD_LIBRARY_PATH
+prepend_ld_library_path() {
+     local new_path="$1"
+     local current_path="$LD_LIBRARY_PATH"
+
+     if [ -d "$1" ]; then
+       # Check if the new path is already in the current path
+       if [[ ":$current_path:" == *":$new_path:"* ]]; then
+          echo "Path '$new_path' is already in LD_LIBRARY_PATH."
+       else
+          # Prepend the new path to LD_LIBRARY_PATH
+          export LD_LIBRARY_PATH="$new_path:$current_path"
+          echo "Prepended '$new_path' to LD_LIBRARY_PATH."
+       fi
+     fi
+}
+prepend_ld_library_path "/home/zeyuanhu/software/gcc14/gcc14/lib64"
 
 # LDBC Datagen (https://github.com/ldbc/ldbc_snb_datagen_spark)
 export SPARK_HOME="/opt/spark-3.1.2-bin-hadoop3.2"
