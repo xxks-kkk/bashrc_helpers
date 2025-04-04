@@ -1,1 +1,2 @@
 \timing
+select pg_backend_pid();
