@@ -134,6 +134,7 @@ cp -r $DIR/dot_files/.vim $HOME/.vim
 cp $DIR/dot_files/.gitconfig $HOME/.gitconfig
 cp $DIR/dot_files/.git-commit-template $HOME/.git-commit-template
 cp $DIR/dot_files/.git-completion.bash $HOME/.git-completion.bash
+cp $DIR/dot_files/.inputrc $HOME/.inputrc
 
 # Enables the git autocompletion script
 if [ -f ~/.git-completion.bash ]; then
