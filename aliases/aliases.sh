@@ -65,6 +65,10 @@ git config --global core.editor vim
 # LaTex related
 alias latexmgrgui='sudo env PATH="$PATH" tlmgr --gui'                                    ## bring up latex manager gui
 alias lsudo='sudo env PATH="$PATH"'                                                      ## use speciall sudo to use tlmgr
+latex_compile() {                                                                        ## build latex pdf based on input filename
+    local filename="$1"
+    pdflatex "$filename".tex && bibtex "$filename".aux && pdflatex "$filename".tex && pdflatex "$filename".tex
+}
 
 # emacs related
 set -o emacs                                                                             ## enable emacs operation in command
