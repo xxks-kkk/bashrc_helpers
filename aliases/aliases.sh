@@ -78,7 +78,9 @@ export EDITOR=emacsclient
 # TODO: For Ubuntu, checking for emacs can be improved by following
 # https://garywoodfine.com/use-pbcopy-on-ubuntu/
 if [[ -f /opt/local/bin/emacs && "$platform" != 'mac' ]]; then
-    alias em='/opt/local/bin/emacs -nw'                                                  ## quickly fire up emacs
+    alias em='/opt/local/bin/emacs -nw'
+elif [ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]; then
+    alias em='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 elif [ -e /usr/local/bin/emacs ]; then
     alias em='/usr/local/bin/emacs -nw'
 elif [ -f /usr/bin/emacs ]; then
