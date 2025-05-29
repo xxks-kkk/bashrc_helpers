@@ -14,6 +14,7 @@ set autoindent
 set hlsearch
 set incsearch
 set showmatch
+set cursorline
  
 set number
 filetype on
