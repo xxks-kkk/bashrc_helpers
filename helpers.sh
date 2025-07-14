@@ -39,6 +39,7 @@ __add_path_head "/usr/lib/jvm"
 __add_path_head "/Applications/Postgres.app/Contents/Versions/14/bin"
 __add_path_head "/home/zeyuanhu/software/latex24/bin/x86_64-linux"
 __add_path_head "/home/zeyuanhu/.dotnet"
+__add_path_head "${HOME}/.local/bin/env"
 
 # if a directory exists and not already in $LD_LIBRARY_PATH, add it to $LD_LIBRARY_PATH
 prepend_ld_library_path() {

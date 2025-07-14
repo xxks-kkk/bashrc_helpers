@@ -135,4 +135,19 @@ elif [[ $platform == 'windows' ]]; then
     alias python='winpty python.exe'
 fi
 
+# Usage: copy-to-docker-volume SRC_PATH DEST_VOLUME_NAME [DEST_PATH]
+copy-to-docker-volume() {
+  SRC_PATH=$1
+  DEST_VOLUME_NAME=$2
+  DEST_PATH="${3:-}"
+  # create smallest Docker image possible
+  echo -e 'FROM scratch\nLABEL empty=""' | docker build -t empty -
+  # create temporary container to be able to mount volume
+  CONTAINER_ID=$(docker container create -v "${DEST_VOLUME_NAME}":/data empty cmd)
+  # copy files to volume
+  docker cp "${SRC_PATH}" "${CONTAINER_ID}":"/data/${DEST_PATH}"
+  # remove temporary container
+  docker rm "${CONTAINER_ID}"
+}
+
 clear
