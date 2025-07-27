@@ -40,6 +40,7 @@ __add_path_head "/Applications/Postgres.app/Contents/Versions/14/bin"
 __add_path_head "/home/zeyuanhu/software/latex24/bin/x86_64-linux"
 __add_path_head "/home/zeyuanhu/.dotnet"
 __add_path_head "${HOME}/.local/bin/env"
+__add_path_head "${HOME}/.local/bin"
 
 # if a directory exists and not already in $LD_LIBRARY_PATH, add it to $LD_LIBRARY_PATH
 prepend_ld_library_path() {
@@ -124,7 +125,7 @@ source $DIR/history/history_settings.sh
 # Setup additionaly utilities based on the current environment
 # source $DIR/aliases/amazon.sh
 # source $DIR/aliases/microsoft.sh
-source $DIR/aliases/bytedance.sh
+# source $DIR/aliases/bytedance.sh
 
 # Copy dotfiles the $HOME
 cp $DIR/dot_files/.gdbinit $HOME
