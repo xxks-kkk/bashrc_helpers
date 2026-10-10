@@ -54,6 +54,7 @@ function weather() {                                                            
 # git related
 alias quickdel="git ls-files --deleted -z | xargs -0 git rm"                             ## rm the deleted files from git control
 alias gs="git status"
+alias gf="git diff --color-words"
 alias gh="git push"
 alias gl="git pull"
 alias ga="git add"
